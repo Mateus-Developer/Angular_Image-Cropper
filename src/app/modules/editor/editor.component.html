@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="toolbar mat-elevation-z10">
+    <div>
+      <a [routerLink]="['/gallery']" mat-raised-button matTooltip="Back to gallery" color="primary">
+        <mat-icon>arrow_back</mat-icon>
+      </a>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Image name:*</mat-label>
+        <input matInput placeholder="Ex. Image" value="Image" [(ngModel)]="imageName">
+      </mat-form-field>
+      <div>
+        <input hidden #fileInput type="file" (change)="selectFile($event)" />
+        <button mat-raised-button matTooltip="Upload image" color="primary" (click)="fileInput.click()">
+          <mat-icon>add_photo_alternate</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button matTooltip="Save the crop image" color="primary" (click)="save()"
+        [disabled]="!imagePreview">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="preview mat-elevation-z10">
+    <img [hidden]="!imagePreview" #imgPreviewElement [src]="imagePreview">
+  </div>
+  <div class="controls">
+    <div class="margin_default">
+      <button mat-mini-fab matTooltip="Move image" color="primary" (click)="cropImageMove()" [disabled]="!imagePreview">
+        <mat-icon>open_with</mat-icon>
+      </button>
+      <button mat-mini-fab matTooltip="Move crop" color="primary" (click)="cropCropMove()" [disabled]="!imagePreview">
+        <mat-icon>crop</mat-icon>
+      </button>
+    </div>
+
+    <div class="margin_default">
+      <button mat-mini-fab matTooltip="Swap horizontal" color="primary" (click)="cropScaleX()"
+        [disabled]="!imagePreview">
+        <mat-icon>swap_horiz</mat-icon>
+      </button>
+      <button mat-mini-fab matTooltip="Swap vertical" color="primary" (click)="cropScaleY()" [disabled]="!imagePreview">
+        <mat-icon>swap_vert</mat-icon>
+      </button>
+    </div>
+
+    <div class="margin_default">
+      <button mat-mini-fab matTooltip="Zoom in" color="primary" (click)="cropZoomIn()" [disabled]="!imagePreview">
+        <mat-icon>zoom_in</mat-icon>
+      </button>
+      <button mat-mini-fab matTooltip="Zoom out" color="primary" (click)="cropZoomOut()" [disabled]="!imagePreview">
+        <mat-icon>zoom_out</mat-icon>
+      </button>
+    </div>
+
+    <div class="margin_default">
+      <button mat-mini-fab matTooltip="Crop" color="primary" (click)="cropInit()" [disabled]="!imagePreview">
+        <mat-icon>done_outline</mat-icon>
+      </button>
+      <button mat-mini-fab matTooltip="Clear" color="primary" (click)="cropClear()" [disabled]="!imagePreview">
+        <mat-icon>crop_square</mat-icon>
+      </button>
+    </div>
+
+    <div class="margin_default">
+      <button mat-mini-fab matTooltip="Rotate left" color="primary" (click)="cropRotateLeft()"
+        [disabled]="!imagePreview">
+        <mat-icon>rotate_left</mat-icon>
+      </button>
+      <button mat-mini-fab matTooltip="Rotate right" color="primary" (click)="cropRotateRight()"
+        [disabled]="!imagePreview">
+        <mat-icon>rotate_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

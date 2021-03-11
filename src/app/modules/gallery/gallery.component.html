@@ -1,0 +1,21 @@
+<div class="container" fxLayout="row wrap" fxLayoutGap="1rem grid">
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let i of images">
+    <mat-card class="mat-elevation-z10">
+      <mat-card-header>
+        <mat-card-title>{{ i.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="i.src" alt="">
+      <mat-card-content></mat-card-content>
+      <mat-card-actions>
+        <a [routerLink]="['/editor', i.id]" mat-button>EDIT</a>
+        <button mat-raised-button color="warn" (click)="delete(i.id)">DELETE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div class="fab_area">
+  <a [routerLink]="['/editor']" mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+  </a>
+</div>

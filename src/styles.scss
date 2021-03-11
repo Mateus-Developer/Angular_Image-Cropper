@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~cropperjs/dist/cropper.min.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  app-root {
+    height: 100vh;
+    display: grid;
+    grid-template:
+      "toolbar" auto
+      "main" 1fr;
+    mat-toolbar {
+      grid-area: toolbar;
+    }
+    main {
+      grid-area: main;
+    }
+  }
+}

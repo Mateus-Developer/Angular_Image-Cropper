@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  background: #f3f3f3;
+  overflow-y: auto;
+  height: 100%;
+  grid-template:
+    "toolbar" 4.5rem
+    "preview" 1fr
+    "controls" auto;
+  .toolbar {
+    grid-area: toolbar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.5rem;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+  .preview {
+    grid-area: preview;
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 900px;
+    }
+  }
+  .controls {
+    grid-area: controls;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    padding: 1rem 0.5rem;
+  }
+}
+
+.margin_default {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0.5rem;
+}
